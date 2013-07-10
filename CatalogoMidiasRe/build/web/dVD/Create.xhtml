@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDVDTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDVDLabel_diretor}" for="diretor" />
+                    <h:inputText id="diretor" value="#{dVDController.selected.diretor}" title="#{bundle.CreateDVDTitle_diretor}" />
+                    <h:outputLabel value="#{bundle.CreateDVDLabel_papeis}" for="papeis" />
+                    <h:inputText id="papeis" value="#{dVDController.selected.papeis}" title="#{bundle.CreateDVDTitle_papeis}" />
+                    <h:outputLabel value="#{bundle.CreateDVDLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{dVDController.selected.id}" title="#{bundle.CreateDVDTitle_id}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{dVDController.create}" value="#{bundle.CreateDVDSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{dVDController.prepareList}" value="#{bundle.CreateDVDShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDVDIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

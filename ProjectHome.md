@@ -1,0 +1,1 @@
+This is a simple media catalog in Java (Hibernate, JSF, JPA, AJAX, I18n)
